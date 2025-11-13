@@ -1,6 +1,8 @@
 package com.plurasight;
 
 public class Drinks {
+    public Drinks() {
+    }
     private String size;
     private String flavor;
 

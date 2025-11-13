@@ -440,7 +440,7 @@ class MainClass {
         boolean validSize = false;
 
         while (!validSize) {
-            System.out.print("Choose drink size (S/M/L: ");
+            System.out.print("Choose drink size (S/M/L): ");
             System.out.println("1) Small - 2.00");
             System.out.println("2) Med - 2.75");
             System.out.println("3) Large - 3.00");
@@ -448,7 +448,7 @@ class MainClass {
 
        String drinkChoice = scanner.nextLine().trim();
 
-       switch (size) {
+       switch (drinkChoice) {
            case "1":
                size = "Small";
                validSize = true;
@@ -463,25 +463,58 @@ class MainClass {
                        break;
                        default:
                            System.out.println("Please choose a drink.");
+
        }
         }
 ///  Flavor
         System.out.print("Choose drink type: ");
+        System.out.println("\nEnter drink type (Sprite, Lemonade, Cherry Fanta, Fruit Punch, Bottled water): ");
         // Choose different drinks
         String flavor = scanner.nextLine().trim();
 
-        Drink drink = new Drink()
+        Drinks drink = new Drinks(size, flavor);
+        order.addDrink(drink);
 
+        System.out.println("Added " + size + " " + flavor + "!\n");
     }
-
-
-
     private static void addSide(Scanner scanner, Order order) {
-        System.out.println("Added Side");
+        System.out.println("\n============= ADD SIDE ================");
+
+        System.out.println("\nAvailable sides:");
+        System.out.println("1) French Fries");
+        System.out.println("2) Onion Rings");
+        System.out.println("3) Chips");
+        System.out.print("Choose: ");
+
+        String choice = scanner.nextLine().trim();
+        String sideType = "";
+
+        switch (choice) {
+            case "1":
+                sideType = "French Fries";
+                break;
+            case "2":
+                sideType = "Onion Rings";
+                break;
+            case "3":
+                sideType = "Chips";
+                break;
+            default:
+                sideType = "French Fries";  // Default
+        }
+
+        Side side = new Side(sideType);
+        order.addSide(side);
+
+        System.out.println("Added " + sideType + "!\n");
     }
+
+
+
+
     private static void checkingout(Scanner scanner, Order order) {
         System.out.println("Checking out");
-        if(order.isEmpty()) {
+        if (order.isEmpty()) {
             System.out.println("Please choose either an item or a side and drink\n");
             return;
         }
@@ -490,9 +523,9 @@ class MainClass {
         String confirm = scanner.nextLine().trim().toUpperCase();
         if (confirm.equals("YES")) {
             System.out.println("Order has been checked out");
-        } else  {
-            System.out.println("Order has been checked out");
+        } else {
+            System.out.println("Order has not been checked out");
 
         }
     }
-}
+    }
