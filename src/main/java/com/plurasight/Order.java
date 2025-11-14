@@ -101,7 +101,7 @@ public class Order {
             totalPrice += item.getPrice();
         }
 
-        for (Drinks drink : drinks) {     // FIXED
+        for (Drinks drink : drinks) {
             totalPrice += drink.getPrice();
         }
 
@@ -110,5 +110,38 @@ public class Order {
         }
 
         return totalPrice;
+    }
+
+
+    public String getReceiptText() {
+        StringBuilder receipt = new StringBuilder();
+
+        if (!items.isEmpty()) {
+            receipt.append("HOT DOGS:\n");
+            for (Item item : items) {
+                receipt.append(item.toString()).append("\n\n");
+            }
+        }
+
+        if (!drinks.isEmpty()) {
+            receipt.append("DRINKS:\n");
+            for (Drinks drink : drinks) {
+                receipt.append("  ").append(drink.toString()).append("\n");
+            }
+            receipt.append("\n");
+        }
+
+        if (!sides.isEmpty()) {
+            receipt.append("SIDES:\n");
+            for (Side side : sides) {
+                receipt.append("  ").append(side.toString()).append("\n");
+            }
+            receipt.append("\n");
+        }
+
+        receipt.append("---------------------\n");
+        receipt.append(String.format("TOTAL: $%.2f\n", getTotalPrice()));
+
+        return receipt.toString();
     }
 }

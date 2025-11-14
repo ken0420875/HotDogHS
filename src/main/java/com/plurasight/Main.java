@@ -1,6 +1,10 @@
 package com.plurasight;
 
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 class MainClass {
@@ -513,19 +517,55 @@ class MainClass {
 
 
     private static void checkingout(Scanner scanner, Order order) {
-        System.out.println("Checking out");
-        if (order.isEmpty()) {
-            System.out.println("Please choose either an item or a side and drink\n");
+        System.out.println("\n========== CHECKOUT ==========");
+
+        if(order.isEmpty()) {
+            System.out.println("Your order is empty! Cannot checkout.\n");
             return;
         }
-        order.displayOrder();
-        System.out.println("\nConfirm order?");
-        String confirm = scanner.nextLine().trim().toUpperCase();
-        if (confirm.equals("YES")) {
-            System.out.println("Order has been checked out");
-        } else {
-            System.out.println("Order has not been checked out");
 
+        if(!order.isValid()) {
+            System.out.println("If you don't order any hot dogs, you must order at least a drink or side!\n");
+            return;
+        }
+
+        order.displayOrder();
+
+        System.out.print("\nConfirm order? (Y/N): ");
+        String confirm = scanner.nextLine().trim().toUpperCase();
+
+        if (confirm.equals("Y")) {
+            saveReceipt(order);
+            System.out.println("\n✓ Order confirmed! Receipt saved.\n");
+        } else {
+            System.out.println("\nOrder cancelled.\n");
+        }
+    }
+    private static void saveReceipt(Order order) {
+        try {
+            // Create receipts folder if it doesn't exist
+            File receiptsDir = new File("receipts");
+            if (!receiptsDir.exists()) {
+                receiptsDir.mkdir();
+            }
+
+            // Generate filename with timestamp
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HHmmss");
+            String timestamp = dateFormat.format(new Date());
+            String filename = "receipts/" + timestamp + ".txt";
+
+            // Write receipt to file
+            FileWriter writer = new FileWriter(filename);
+
+            writer.write("KEN'S FULL FRANKS\n\n");
+            writer.write(order.getReceiptText());
+
+            writer.close();
+
+            System.out.println("Receipt saved to: " + filename);
+
+        } catch (Exception e) {
+            System.out.println("Error saving receipt: " + e.getMessage());
         }
     }
     }
