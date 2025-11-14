@@ -46,7 +46,7 @@ public class Order {
         if (items.isEmpty()) {
             System.out.println("No Hot Dog added");
         } else {
-            System.out.println("\nHot Dog displayed");
+            System.out.println("\nHot Dog");
             for (int i = items.size() - 1; i >= 0; i--) {
                 Item item = items.get(i);
                 System.out.println(item.toString());
@@ -57,7 +57,7 @@ public class Order {
         if (drinks.isEmpty()) {
             System.out.println("No Drink added");
         } else {
-            System.out.println("\nDrinks Displayed");
+            System.out.println("\nDrinks");
             for (int i = drinks.size() - 1; i >= 0; i--) {
                 Drinks drink = drinks.get(i);
                 System.out.printf("  - %s: $%.2f%n", drink.getName(), drink.getPrice());

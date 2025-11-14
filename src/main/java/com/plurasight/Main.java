@@ -550,7 +550,7 @@ class MainClass {
             }
 
             // Generate filename with timestamp
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HHmmss");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd-HHmmss");
             String timestamp = dateFormat.format(new Date());
             String filename = "receipts/" + timestamp + ".txt";
 
