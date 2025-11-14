@@ -41,6 +41,7 @@ This is the entry point of the app that we spoke on in the previous summary. If 
 The loop and switch statement that I used here is seen throughput my code for many methods such as " addDrink,addSide and checkingOut")
 
 <img width="828" height="756" alt="image" src="https://github.com/user-attachments/assets/333266a8-ea4e-4240-8b8d-ee0935fd87b0" />
+
 --------------
 The Method starts the order and displays the menu's options that the user can choose from. It starts off by creating an order object so everything that the customer wants saves and is added. The application uses the same loop to keep the menu active until the user finishes their order or decides to cancel and exit the app,
 This structure also lets the customer add however many items they want from the options listed.
@@ -48,8 +49,11 @@ This structure also lets the customer add however many items they want from the 
 
 OOP
 --------------
-Below we have the drinks class 
-<img width="779" height="731" alt="Screenshot 2025-11-14 at 12 29 09 AM" src="https://github.com/user-attachments/assets/064fd481-12a0-4869-901c-f2c11d8bd7eb" />
+Below we have the Toppings class, this abstract class represents all the HotDog toppings that you choose. It uses Abstraction and Inheritance so that the child classes can inherit the properties and methods from it and provide their own pricing. It's using classes child classes like MeatTopping to determine how much it costs and what the intial price was.
+
+<img width="847" height="673" alt="Screenshot 2025-11-14 at 9 45 19 AM" src="https://github.com/user-attachments/assets/dcd5bc49-17d0-43ea-a175-90f10d27e9a0" />
+
+
 
 Refrences 
 --------------
