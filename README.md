@@ -49,9 +49,14 @@ This structure also lets the customer add however many items they want from the 
 
 OOP
 --------------
-Below we have the Toppings class, this abstract class represents all the HotDog toppings that you choose. It uses Abstraction and Inheritance so that the child classes can inherit the properties and methods from it and provide their own pricing. It's using classes child classes like MeatTopping to determine how much it costs and what the intial price was.
+The Toppings class is an abstract class that represents all the hot dog toppings a customer can choose. It uses abstraction and inheritance so that child classes can inherit its properties and methods while providing their own pricing. For example the MeatToppings class has an area that determines the specific cost of meat toppings while still using the shared properties defined in Toppings.
 
 <img width="847" height="673" alt="Screenshot 2025-11-14 at 9 45 19 AM" src="https://github.com/user-attachments/assets/dcd5bc49-17d0-43ea-a175-90f10d27e9a0" />
+
+Diagram
+--------------
+
+<img width="552" height="786" alt="Screenshot 2025-11-14 at 12 01 46 PM" src="https://github.com/user-attachments/assets/20247217-3568-414a-b91f-13149526d1a8" />
 
 
 
@@ -65,3 +70,4 @@ Create a receipt in java? | learn to code |. (n.d.). YouTube. Retrieved from htt
 YouTube
 Christenson, M. (Instructor). (2025). [Course/lecture name if you know it] — Personal instruction.
 Claude AI (assistant). (2025). AI conversational support.
+https://www.planttext.com
