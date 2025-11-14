@@ -1,8 +1,7 @@
 package com.plurasight;
 
 public class Drinks {
-    public Drinks() {
-    }
+
     private String size;
     private String flavor;
 
@@ -18,7 +17,7 @@ public class Drinks {
                 case "Medium":
                     return 2.50;
                     case "Large":
-                        return 2.75;
+                        return 3.00;
                         default:
                             return 0.00;
         }

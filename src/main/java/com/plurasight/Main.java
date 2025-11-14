@@ -105,9 +105,9 @@ class MainClass {
         while (!sizeFound) {
             System.out.print("\nEnter the size of the hot dog: ");
             System.out.println("\n======== Size Options =======");
-            System.out.println("S) Small - 3.95");
-            System.out.println("M) Med - 6.50");
-            System.out.println("L) Large - 9.50");
+            System.out.println("S) Small - 3.50");
+            System.out.println("M) Med - 9.00");
+            System.out.println("L) Large - 8.50");
             System.out.println("Choose here: ");
 
             String choice = scanner.nextLine();
@@ -133,7 +133,8 @@ class MainClass {
         String bun = "";
         boolean bunFound = false;
         while (!bunFound) {
-            System.out.print("\nEnter the bun type: ");
+            System.out.print("\nEnter the bun type ");
+            System.out.println("\n======== BUNS =======");
             System.out.println("1) Regular");
             System.out.println("2) Buttered");
             System.out.println("3) Pretzel");
@@ -169,17 +170,17 @@ class MainClass {
 
         // Add Cheese
         System.out.println("\n============= CHEESE TOPPINGS ================");
-        System.out.println("Select the Cheese of your choice: ");
+        System.out.println("Select the Cheese of your choice ");
         System.out.println("1) American");
-        System.out.println ("2) Sharp Cheddar");
+        System.out.println("2) Sharp Cheddar");
         System.out.println("3) Pepper Jack");
         System.out.println("4) Swiss(Premium)");
+        System.out.println("0) No cheese");
         System.out.print("Choose here: ");
-        System.out.print("!DISCLAIMER! If you don't want a specific cheese select 0 ");
+
 
         boolean addCheese = true;
         while (addCheese) {
-            System.out.print("Choose cheese (0 to exit): ");
             String CheeseChoice = scanner.nextLine();
             if (CheeseChoice.equals("0")) {
                 addCheese = false;
@@ -215,10 +216,10 @@ class MainClass {
                     String extraChoice = scanner.nextLine();
                     boolean validExtraChoice = extraChoice.equals("Y");
 
-                    CheeseToppings meatTopping = new CheeseToppings(CheeseChoice, validExtraChoice);
+                    CheeseToppings CheeseTopping = new CheeseToppings(cheese, validExtraChoice);
 
 
-                    System.out.println("Added " + CheeseChoice + (validExtraChoice ? " (Extra)" : "") + "!");
+                    System.out.println("Added " + cheese + (validExtraChoice ? " (Extra)" : "") + "!");
                 }
             }
         }
@@ -226,73 +227,72 @@ class MainClass {
 
         // Add Meat
         System.out.println("\n============= MEAT TOPPINGS ================");
-        System.out.println("Select the meat of your choice: ");
+        System.out.println("Select the meat of your choice ");
         System.out.println("1) Pulled pork");
-        System.out.println ("2) Bacon");
+        System.out.println("2) Bacon");
         System.out.println("3) Chili");
         System.out.println("4) Sausage");
-        System.out.print("Choose here: ");
-        System.out.print("!DISCLAIMER! If you don't want a meat select 0 ");
+        System.out.println("0) No meat");
+        System.out.println("Choose here: ");
 
         boolean addMeat = true;
         while (addMeat) {
-            System.out.print("Choose meat (0 to exit): ");
             String meatChoice = scanner.nextLine();
-        if(meatChoice.equals("0")) {
-            addMeat = false;
-        } else {
-            // Array Maybe?
-            String meat = "";
-            boolean validMeatChoice = false;
-            // Switch Statements
+            if (meatChoice.equals("0")) {
+                addMeat = false;
+            } else {
+                // Array Maybe?
+                String meat = "";
+                boolean validMeatChoice = false;
+                // Switch Statements
 
-            switch (meatChoice) {
-                case "1":
-                    meat = " Pulled Pork";
-                    validMeatChoice = true;
-                    break;
+                switch (meatChoice) {
+                    case "1":
+                        meat = " Pulled Pork";
+                        validMeatChoice = true;
+                        break;
                     case "2":
                         meat = " Bacon";
                         validMeatChoice = true;
                         break;
-                        case "3":
-                            meat = " Chili";
-                            validMeatChoice = true;
-                            break;
-                            case "4":
-                                meat = " Sausage";
-                                validMeatChoice = true;
-                                break;
-                                //  Add option for no meat Later
-                default:
-                            System.out.println("Try Again");
+                    case "3":
+                        meat = " Chili";
+                        validMeatChoice = true;
+                        break;
+                    case "4":
+                        meat = " Sausage";
+                        validMeatChoice = true;
+                        break;
+                    //  Add option for no meat Later
+                    default:
+                        System.out.println("Try Again");
+                }
+                if (validMeatChoice) {
+                    System.out.print("Extra" + meat + "? (Y/N) ");
+                    String extraChoice = scanner.nextLine();
+                    boolean validExtraChoice = extraChoice.equals("Y");
+
+                    MeatToppings meatTopping = new MeatToppings(meatChoice, validExtraChoice);
+
+
+                    System.out.println("Added " + meat + (validExtraChoice ? " (Extra)" : "") + "!");
+                }
             }
-            if(validMeatChoice) {
-                System.out.print("Extra" + meat + "? (Y/N) ");
-                String extraChoice = scanner.nextLine();
-                boolean validExtraChoice = extraChoice.equals("Y");
-
-                MeatToppings meatTopping = new MeatToppings(meatChoice, validExtraChoice);
-
-
-                System.out.println("Added " + meat + (validExtraChoice ? " (Extra)" : "") + "!");
-            }
-        }
         }
         // Add Reg
         System.out.println("\n============= REGULAR (Free of charge) TOPPINGS ================");
         System.out.println("Select the topping of your choice: ");
         System.out.println("1) Sauerkraut");
-        System.out.println ("2) Jalapenos");
+        System.out.println("2) Jalapenos");
         System.out.println("3) Relish");
         System.out.println("4) Chopped Tomatoes");
         System.out.print("5) Pickles ");
+        System.out.println("0) No FREE Toppings");
         System.out.print("Choose here: ");
-        System.out.print("!DISCLAIMER! If you don't want a FREE regular topping select 0 ");
 
         boolean addRegular = true;
         while (addRegular) {
-            System.out.print("Choose topping (0 to exit): ");
+
             String regChoice = scanner.nextLine();
             if (regChoice.equals("0")) {
                 addRegular = false;
@@ -345,11 +345,11 @@ class MainClass {
         System.out.println("3) Mayo");
         System.out.println("4) Hot Sauce");
         System.out.println("5) BBQ Sauce");
-        System.out.println("0) Done with sauces");
+        System.out.println("0) No sauce");
+        System.out.println("Choose here: ");
 
         boolean addSauce = true;
         while (addSauce) {
-            System.out.print("Choose sauce (0 to finish): ");
             String sauceChoice = scanner.nextLine().trim();
 
             if (sauceChoice.equals("0")) {
@@ -400,7 +400,7 @@ class MainClass {
         System.out.println("2) Chicago-Style");
         System.out.println("3) Seattle Dog");
         System.out.println("0) No specialization");
-        System.out.print("Choose: ");
+        System.out.print("Choose here: ");
 
         String specialChoice = scanner.nextLine().trim();
         String specialType = "";
@@ -437,42 +437,44 @@ class MainClass {
 
     }
 
-// Replaced
+    // Replaced
     private static void addDrink(Scanner scanner, Order order) {
         System.out.println("\n============= ADD DRINK ================");
         String size = "";
         boolean validSize = false;
 
         while (!validSize) {
-            System.out.print("Choose drink size (S/M/L): ");
+            System.out.println("Choose drink size (S/M/L) ");
             System.out.println("1) Small - 2.00");
-            System.out.println("2) Med - 2.75");
+            System.out.println("2) Med - 2.50");
             System.out.println("3) Large - 3.00");
-            System.out.println("Choose here:");
+            System.out.print("Choose here:");
 
-       String drinkChoice = scanner.nextLine().trim();
+            String drinkChoice = scanner.nextLine();
 
-       switch (drinkChoice) {
-           case "1":
-               size = "Small";
-               validSize = true;
-               break;
-               case "2":
-                   size = "Med";
-                   validSize = true;
-                   break;
-                   case "3":
-                       size = "Large";
-                       validSize = true;
-                       break;
-                       default:
-                           System.out.println("Please choose a drink.");
 
-       }
+            switch (drinkChoice) {
+                case "1":
+                    size = "Small";
+                    validSize = true;
+                    break;
+                case "2":
+                    size = "Medium";
+                    validSize = true;
+                    break;
+                case "3":
+                    size = "Large";
+                    validSize = true;
+                    break;
+                default:
+                    System.out.println("Please choose a drink.");
+
+            }
         }
 ///  Flavor
-        System.out.print("Choose drink type: ");
-        System.out.println("\nEnter drink type (Sprite, Lemonade, Cherry Fanta, Fruit Punch, Bottled water): ");
+        System.out.print("\nType in your desired drink ");
+        System.out.println(" (Sprite, Lemonade, Cherry Fanta, Fruit Punch, Bottled water) ");
+        System.out.println("Drink Choice: ");
         // Choose different drinks
         String flavor = scanner.nextLine().trim();
 
@@ -481,6 +483,7 @@ class MainClass {
 
         System.out.println("Added " + size + " " + flavor + "!\n");
     }
+
     private static void addSide(Scanner scanner, Order order) {
         System.out.println("\n============= ADD SIDE ================");
 
@@ -488,7 +491,8 @@ class MainClass {
         System.out.println("1) French Fries");
         System.out.println("2) Onion Rings");
         System.out.println("3) Chips");
-        System.out.print("Choose: ");
+        System.out.println("0) No side");
+        System.out.print("Choose here: ");
 
         String choice = scanner.nextLine().trim();
         String sideType = "";
@@ -503,8 +507,9 @@ class MainClass {
             case "3":
                 sideType = "Chips";
                 break;
-            default:
-                sideType = "French Fries";  // Default
+            case "0":
+                break;
+
         }
 
         Side side = new Side(sideType);
@@ -514,18 +519,16 @@ class MainClass {
     }
 
 
-
-
     private static void checkingout(Scanner scanner, Order order) {
         System.out.println("\n========== CHECKOUT ==========");
 
-        if(order.isEmpty()) {
+        if (order.isEmpty()) {
             System.out.println("Your order is empty! Cannot checkout.\n");
             return;
         }
 
-        if(!order.isValid()) {
-            System.out.println("If you don't order any hot dogs, you must order at least a drink or side!\n");
+        if (!order.isValid()) {
+            System.out.println("If you don't order any hot dogs, you must order at least a drink and side!\n");
             return;
         }
 
@@ -541,16 +544,17 @@ class MainClass {
             System.out.println("\nOrder cancelled.\n");
         }
     }
+
     private static void saveReceipt(Order order) {
         try {
-            // Create receipts folder if it doesn't exist
+            ///  Receipts
             File receiptsDir = new File("receipts");
             if (!receiptsDir.exists()) {
                 receiptsDir.mkdir();
             }
 
-            // Generate filename with timestamp
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd-HHmmss");
+            // Generate filename with timestamp (NO SLASHES!)
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HHmmss");
             String timestamp = dateFormat.format(new Date());
             String filename = "receipts/" + timestamp + ".txt";
 
@@ -568,4 +572,4 @@ class MainClass {
             System.out.println("Error saving receipt: " + e.getMessage());
         }
     }
-    }
+}

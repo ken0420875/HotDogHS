@@ -87,10 +87,12 @@ public class Order {
     }
 
     public boolean isValid() {
-        if (items.isEmpty()) {
-            return drinks.isEmpty() && sides.isEmpty();
-        }
-        return true;
+        boolean hasHotDog = !items.isEmpty();
+        boolean hasDrink = !drinks.isEmpty();
+        boolean hasSide = !sides.isEmpty();
+
+        // IF they have a drink or side(Help needed)
+        return hasHotDog || (hasDrink && hasSide);
     }
 
     /// Price

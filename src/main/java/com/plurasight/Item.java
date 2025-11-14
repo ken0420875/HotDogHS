@@ -44,11 +44,11 @@ public class Item {
     private double getBasePrice() {
         switch (size) {
             case "Small":
-                return 3.95;
+                return 3.50;
             case "Med":
-                return 6.50;
+                return 9.00;
             case "Large":
-                return 9.50;
+                return 8.50;
             default:
                 return 0.0;
         }
