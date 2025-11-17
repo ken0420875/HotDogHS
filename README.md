@@ -68,6 +68,6 @@ Build a Receipt Calculator in Java from Scratch | Complete Project Tutorial. (n.
 YouTube
 Create a receipt in java? | learn to code |. (n.d.). YouTube. Retrieved from https://youtu.be/mYBA-OHGgbw?si=I_Tttkp7fedfcZhw 
 YouTube
-Christenson, M. (Instructor). (2025). [Course/lecture name if you know it] — Personal instruction.
+Christenson, M. (Instructor). (2025). — Personal instruction.
 Claude AI (assistant). (2025). AI conversational support.
 https://www.planttext.com
